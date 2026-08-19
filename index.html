@@ -9,10 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260817-multiprofile-local" />
+  <link rel="stylesheet" href="style.css?v=20260819-print-fix2" />
 </head>
 <body>
-  <!-- BUILD: PUBLICACAO-DROPDOWN-SEM-AJUSTE-AGENDA-20260807 -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="ambient ambient-three" aria-hidden="true"></div>
+  <!-- BUILD: MOBILE-FIRST-MOTION-PREMIUM-20260819 -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
       <span>⚡ BELÉM TODAY — 131 MIL+ SEGUIDORES NO ALCANCE PRINCIPAL</span>
@@ -49,7 +53,7 @@
       <a href="#agenda"><i class="fa-regular fa-calendar-days"></i> 2. Agenda</a>
       <a href="#dados-proposta"><i class="fa-solid fa-user-check"></i> 3. Dados</a>
     </nav>
-    <section class="hero">
+    <section class="hero" data-reveal>
       <div class="hero-copy">
         <span class="eyebrow"><i class="fa-solid fa-crown"></i> Proposta comercial interativa</span>
         <h1>Cobertura que transforma evento em <em>alcance, memória e resultado.</em></h1>
@@ -63,16 +67,48 @@
           </button>
         </div>
       </div>
-      <div class="hero-stats">
-        <article><strong>131 mil+</strong><span>seguidores no perfil principal</span></article>
-        <article><strong>2 páginas</strong><span>alcance massivo + nicho geek</span></article>
-        <article><strong>360°</strong><span>captação, edição e publicação</span></article>
+      <div class="motion-showcase" aria-label="Destaques Belém Today">
+        <div class="motion-stage" data-parallax-stage>
+          <div class="motion-word motion-word-a">CAPTE</div>
+          <div class="motion-word motion-word-b">EDITE</div>
+          <div class="motion-word motion-word-c">PUBLIQUE</div>
+
+          <article class="float-card float-card-main" data-depth="1.2">
+            <span class="float-kicker"><i class="fa-solid fa-bolt"></i> Conteúdo em movimento</span>
+            <strong>Seu evento<br><em>vira conteúdo.</em></strong>
+            <div class="mini-reel">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="float-card float-card-stat" data-depth=".7">
+            <small>ALCANCE PRINCIPAL</small>
+            <strong>131 mil+</strong>
+            <span>seguidores</span>
+          </article>
+
+          <article class="float-card float-card-geek" data-depth=".9">
+            <i class="fa-solid fa-gamepad"></i>
+            <div><strong>Belém Today Geek</strong><span>nicho + comunidade</span></div>
+          </article>
+
+          <div class="orbit orbit-a"></div>
+          <div class="orbit orbit-b"></div>
+          <div class="spark spark-a">✦</div>
+          <div class="spark spark-b">✦</div>
+        </div>
+
+        <div class="hero-stats hero-stats-inline">
+          <article><strong>131 mil+</strong><span>alcance principal</span></article>
+          <article><strong>2 páginas</strong><span>massivo + nicho</span></article>
+          <article><strong>360°</strong><span>do briefing ao post</span></article>
+        </div>
       </div>
     </section>
 
     <div class="content-grid">
       <div class="content-main">
-        <section id="servicos" class="section-block">
+        <section id="servicos" class="section-block" data-reveal>
           <div class="section-heading">
             <div>
               <span class="section-kicker">01</span>
@@ -80,10 +116,11 @@
               <p>Escolha o formato, a duração e um ou mais perfis de publicação. O valor é atualizado automaticamente.</p>
             </div>
           </div>
+          <div class="mobile-gesture-hint"><i class="fa-solid fa-hand-pointer"></i><span>Toque em um serviço para adicionar. Ajuste duração, publicação e quantidade no próprio card.</span></div>
           <div id="grupo-captacao" class="service-list"></div>
         </section>
 
-        <section class="section-block">
+        <section class="section-block" data-reveal>
           <div class="section-heading">
             <div>
               <span class="section-kicker">02</span>
@@ -94,7 +131,7 @@
           <div id="grupo-especiais" class="service-list"></div>
         </section>
 
-        <section class="section-block">
+        <section class="section-block" data-reveal>
           <div class="section-heading">
             <div>
               <span class="section-kicker">03</span>
@@ -106,7 +143,7 @@
           <div id="grupo-publicacoes" class="service-list"></div>
         </section>
 
-        <section id="agenda" class="section-block scheduling-card">
+        <section id="agenda" class="section-block scheduling-card" data-reveal>
           <div class="section-heading">
             <div>
               <span class="section-kicker">04</span>
@@ -176,7 +213,7 @@
           </div>
         </section>
 
-        <section id="dados-proposta" class="section-block client-card">
+        <section id="dados-proposta" class="section-block client-card" data-reveal>
           <div class="section-heading">
             <div>
               <span class="section-kicker">05</span>
@@ -195,7 +232,7 @@
         </section>
       </div>
 
-      <aside id="resumo" class="quote-panel">
+      <aside id="resumo" class="quote-panel" data-reveal>
         <div class="quote-head">
           <div><span>Seu orçamento</span><small><i class="fa-solid fa-circle"></i> Atualizado em tempo real</small></div>
           <i class="fa-solid fa-sparkles"></i>
@@ -252,6 +289,6 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script src="script.js?v=20260817-multiprofile-local"></script>
+  <script src="script.js?v=20260819-print-fix2"></script>
 </body>
 </html>

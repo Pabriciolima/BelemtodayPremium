@@ -471,7 +471,14 @@ $('#btnGerar').onclick=openModal;
 $('#btnLimpar').onclick=()=>{state.selected.clear();$('#desconto').value=0;syncUI();toast('Seleção limpa.');};
 $('#btnSalvar').onclick=saveQuote;
 document.querySelectorAll('[data-close-modal]').forEach(el=>el.onclick=closeModal);
-$('#btnImprimir').onclick=()=>window.print();
+$('#btnImprimir').onclick=()=>{
+  const tituloOriginal=document.title;
+  const cliente=($('#clienteNome')?.value||'Cliente').trim().replace(/[^a-zA-ZÀ-ÿ0-9 _-]/g,'');
+  const evento=($('#eventoNome')?.value||'Orcamento').trim().replace(/[^a-zA-ZÀ-ÿ0-9 _-]/g,'');
+  document.title=`Proposta Belém Today - ${evento} - ${cliente}`;
+  window.print();
+  setTimeout(()=>{document.title=tituloOriginal;},500);
+};
 $('#btnCopiar').onclick=async()=>{
   const t=totals();
   const txt=`PROPOSTA BELÉM TODAY\nCliente: ${$('#clienteNome').value||'-'}\nEvento: ${$('#eventoNome').value||'-'}\nData: ${$('#dataEvento').value||'-'} ${$('#horaEvento').value||''}\nNota fiscal: ${$('#notaFiscal').value==='sim'?'Sim':'Não'}\n\n${[...state.selected.values()].map(i=>`${i.qty}x ${i.name}${itemMeta(i)?' ('+itemMeta(i)+')':''}: ${brl(i.price*i.qty)}`).join('\n')}\n\nTOTAL: ${brl(t.total)}\n\nBelém Today | belemtoday@outlook.com | (91) 98451-3581`;
@@ -513,4 +520,109 @@ $('#btnCarregarDemo').onclick=()=>{
   if(target) new MutationObserver(refresh).observe(target,{subtree:true,childList:true,characterData:true});
   reviewBtn.addEventListener('click',()=>document.getElementById('btnGerar')?.click());
   refresh();
+})();
+
+
+
+// ============================================================
+// MOTION PREMIUM — microinterações e animações progressivas
+// Mantém toda a lógica de orçamento existente intacta.
+// ============================================================
+(function initPremiumMotion(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Progresso de leitura
+  const progress = document.getElementById('scrollProgress');
+  const updateProgress = () => {
+    if(!progress) return;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const pct = max > 0 ? (scrollY / max) * 100 : 0;
+    progress.style.width = `${Math.max(0, Math.min(100, pct))}%`;
+  };
+  addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  // Reveal progressivo como nos motion-layouts modernos
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  if(!reduced && 'IntersectionObserver' in window){
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.08, rootMargin:'0px 0px -5% 0px'});
+    revealEls.forEach(el => observer.observe(el));
+  }else revealEls.forEach(el => el.classList.add('is-visible'));
+
+  // Cards entram em cascata
+  const observeServiceCards = () => {
+    const cards = [...document.querySelectorAll('.service-card')];
+    cards.forEach((card,index)=>card.style.setProperty('--delay',`${Math.min(index,8)*55}ms`));
+    if(!reduced && 'IntersectionObserver' in window){
+      const cardObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.04, rootMargin:'0px 0px -2% 0px'});
+      cards.forEach(card => cardObserver.observe(card));
+    }else cards.forEach(card=>card.classList.add('is-visible'));
+  };
+  requestAnimationFrame(observeServiceCards);
+
+  // Leve parallax somente em telas com mouse; não afeta mobile.
+  const stage = document.querySelector('[data-parallax-stage]');
+  if(stage && !reduced && matchMedia('(hover:hover) and (pointer:fine)').matches){
+    stage.addEventListener('pointermove', e => {
+      const r = stage.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      stage.style.transform = `rotateX(${y * -3}deg) rotateY(${x * 4}deg)`;
+      stage.querySelectorAll('[data-depth]').forEach(el=>{
+        const d = Number(el.dataset.depth || 1);
+        el.style.translate = `${x*10*d}px ${y*9*d}px`;
+      });
+    });
+    stage.addEventListener('pointerleave',()=>{
+      stage.style.transform='';
+      stage.querySelectorAll('[data-depth]').forEach(el=>el.style.translate='');
+    });
+  }
+
+  // Feedback visual ao selecionar um serviço.
+  document.addEventListener('click', e=>{
+    const card = e.target.closest('.service-card');
+    if(!card) return;
+    if(e.target.closest('select,input,textarea,.publication-option,.qty-control')) return;
+    card.classList.remove('is-bouncing');
+    void card.offsetWidth;
+    card.classList.add('is-bouncing');
+    setTimeout(()=>card.classList.remove('is-bouncing'),520);
+  });
+
+  // Total "respira" quando muda.
+  const total = document.getElementById('totalGeral');
+  if(total && 'MutationObserver' in window){
+    new MutationObserver(()=>{
+      total.classList.remove('total-pop');
+      void total.offsetWidth;
+      total.classList.add('total-pop');
+    }).observe(total,{childList:true,characterData:true,subtree:true});
+  }
+
+  // Navegação de etapas acompanha a seção ativa no mobile.
+  const progressLinks=[...document.querySelectorAll('.mobile-progress a')];
+  const sections=['servicos','agenda','dados-proposta'].map(id=>document.getElementById(id)).filter(Boolean);
+  if(progressLinks.length && sections.length && 'IntersectionObserver' in window){
+    const stepObserver=new IntersectionObserver(entries=>{
+      const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if(!visible) return;
+      progressLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===`#${visible.target.id}`));
+    },{threshold:[.18,.4,.7],rootMargin:'-20% 0px -55% 0px'});
+    sections.forEach(s=>stepObserver.observe(s));
+  }
 })();
