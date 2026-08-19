@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070b14" />
+  <title>Belém Today | Orçamentos & Agenda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css?v=20260817-multiprofile-local" />
+</head>
+<body>
+  <!-- BUILD: PUBLICACAO-DROPDOWN-SEM-AJUSTE-AGENDA-20260807 -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>⚡ BELÉM TODAY — 131 MIL+ SEGUIDORES NO ALCANCE PRINCIPAL</span>
+      <span>⚡ BELÉM TODAY.GEEK — CULTURA POP, GAMES E COSPLAY</span>
+      <span>⚡ COBERTURA PREMIUM — SETEMBRO/2026</span>
+      <span>⚡ CONTEÚDO, CAPTAÇÃO, EDIÇÃO E PUBLICAÇÃO</span>
+      <span>⚡ BELÉM TODAY — 131 MIL+ SEGUIDORES NO ALCANCE PRINCIPAL</span>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <a href="#inicio" class="brand" aria-label="Belém Today">
+      <div class="brand-mark">BELÉM<br>TODAY</div>
+      <div>
+        <strong>Belém Today</strong>
+        <small>Produtora de conteúdo & cobertura de eventos</small>
+      </div>
+    </a>
+
+    <nav class="topnav" aria-label="Navegação principal">
+      <a href="#servicos"><i class="fa-solid fa-clapperboard"></i> Serviços</a>
+      <a href="#agenda"><i class="fa-regular fa-calendar-days"></i> Agenda</a>
+      <a href="#resumo"><i class="fa-solid fa-file-invoice-dollar"></i> Orçamento</a>
+    </nav>
+
+    <button class="live-pill" type="button" onclick="document.querySelector('#resumo').scrollIntoView({behavior:'smooth'})">
+      <span></span> Orçamento ao vivo
+    </button>
+  </header>
+
+  <main id="inicio" class="app-shell">
+    <nav class="mobile-progress" aria-label="Etapas do orçamento">
+      <a href="#servicos"><i class="fa-solid fa-clapperboard"></i> 1. Serviços</a>
+      <a href="#agenda"><i class="fa-regular fa-calendar-days"></i> 2. Agenda</a>
+      <a href="#dados-proposta"><i class="fa-solid fa-user-check"></i> 3. Dados</a>
+    </nav>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><i class="fa-solid fa-crown"></i> Proposta comercial interativa</span>
+        <h1>Cobertura que transforma evento em <em>alcance, memória e resultado.</em></h1>
+        <p>Selecione os serviços, escolha data, horário e deslocamento. A agenda organiza o trabalho sem cobrança adicional, e o sistema gera automaticamente uma proposta profissional.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="document.querySelector('#servicos').scrollIntoView({behavior:'smooth'})">
+            Montar orçamento <i class="fa-solid fa-arrow-down"></i>
+          </button>
+          <button class="btn btn-ghost" id="btnCarregarDemo">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Carregar exemplo
+          </button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <article><strong>131 mil+</strong><span>seguidores no perfil principal</span></article>
+        <article><strong>2 páginas</strong><span>alcance massivo + nicho geek</span></article>
+        <article><strong>360°</strong><span>captação, edição e publicação</span></article>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <div class="content-main">
+        <section id="servicos" class="section-block">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">01</span>
+              <h2>Captação em vídeo</h2>
+              <p>Escolha o formato, a duração e um ou mais perfis de publicação. O valor é atualizado automaticamente.</p>
+            </div>
+          </div>
+          <div id="grupo-captacao" class="service-list"></div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">02</span>
+              <h2>Conteúdos especiais</h2>
+              <p>Peças extras para ampliar o impacto antes, durante e depois do evento.</p>
+            </div>
+          </div>
+          <div id="grupo-especiais" class="service-list"></div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">03</span>
+              <h2>Complementos da cobertura</h2>
+              <p>Somente complementos que não duplicam a publicação escolhida nos vídeos.</p>
+            </div>
+          </div>
+          <div class="no-duplicates-note"><i class="fa-solid fa-circle-check"></i><div><strong>Orçamento mais simples e sem duplicidade</strong><span>Você pode publicar no Perfil próprio, no Belém Today, no Belém Today Geek ou combinar os perfis. Cada canal selecionado entra automaticamente no valor do vídeo.</span></div></div>
+          <div id="grupo-publicacoes" class="service-list"></div>
+        </section>
+
+        <section id="agenda" class="section-block scheduling-card">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">04</span>
+              <h2>Agenda, horário e deslocamento</h2>
+              <p>Escolha a data, o horário e o local do trabalho. Data e horário servem apenas para organização da agenda; somente o deslocamento pode gerar custo adicional.</p>
+            </div>
+          </div>
+
+          <div class="schedule-grid">
+            <label class="field">
+              <span>Data do trabalho</span>
+              <input type="date" id="dataEvento" />
+              <small id="dataHint">Selecione uma data.</small>
+            </label>
+
+            <label class="field">
+              <span>Horário de início</span>
+              <input type="time" id="horaEvento" value="14:00" />
+              <small id="horaHint">Horário comercial, sem adicional.</small>
+            </label>
+
+            <label class="field">
+              <span>Duração estimada</span>
+              <select id="duracaoEvento">
+                <option value="4">Até 4 horas</option>
+                <option value="8">Até 8 horas</option>
+                <option value="12" selected>Até 12 horas</option>
+              </select>
+              <small>Evento configurado para até 12 horas, sem cobrança adicional de agenda.</small>
+            </label>
+
+            <label class="field">
+              <span>Deslocamento</span>
+              <select id="deslocamento">
+                <option value="0">Belém / Ananindeua — incluso</option>
+                <option value="120">Até 30 km — R$ 120</option>
+                <option value="250">31 a 80 km — R$ 250</option>
+                <option value="450">81 a 150 km — R$ 450</option>
+                <option value="0" data-custom="true">Outro — informar distância</option>
+              </select>
+              <small>Custos de viagem, balsa e hospedagem podem ser adicionados.</small>
+            </label>
+
+            <label class="field hidden" id="campoKm">
+              <span>Distância total estimada (km)</span>
+              <input type="number" id="kmPersonalizado" min="0" step="1" placeholder="Ex.: 220" />
+              <small>R$ 2,50 por km, ida e volta.</small>
+            </label>
+
+            <label class="field">
+              <span>Tipo de evento</span>
+              <select id="tipoEvento">
+                <option value="1">Corporativo / institucional</option>
+                <option value="1.08">Show / festival</option>
+                <option value="1.05">Geek / cosplay / anime</option>
+                <option value="1.12">Casamento / social</option>
+                <option value="1.15">Evento de alta complexidade</option>
+              </select>
+              <small>Eventos mais complexos exigem equipe e operação ampliadas.</small>
+            </label>
+          </div>
+
+          <div class="pricing-rules agenda-free-rules">
+            <article><i class="fa-regular fa-calendar-check"></i><strong>Agenda sem adicional</strong><span>dia e horário não alteram o valor</span></article>
+            <article><i class="fa-solid fa-clock"></i><strong>Evento de até 12h</strong><span>sem taxa extra de jornada</span></article>
+            <article><i class="fa-solid fa-route"></i><strong>Deslocamento</strong><span>único ajuste logístico quando aplicável</span></article>
+          </div>
+        </section>
+
+        <section id="dados-proposta" class="section-block client-card">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">05</span>
+              <h2>Dados da proposta</h2>
+              <p>Essas informações aparecerão no orçamento final.</p>
+            </div>
+          </div>
+          <div class="client-grid">
+            <label class="field"><span>Cliente / empresa</span><input id="clienteNome" placeholder="Nome do contratante" /></label>
+            <label class="field"><span>Nome do evento</span><input id="eventoNome" placeholder="Ex.: Multiverso Geek 2026" /></label>
+            <label class="field"><span>Contato</span><input id="clienteContato" placeholder="WhatsApp ou e-mail" /></label>
+            <label class="field"><span>Validade da proposta</span><select id="validade"><option>7 dias</option><option selected>10 dias</option><option>15 dias</option><option>30 dias</option></select></label>
+            <label class="field"><span>Emissão de nota fiscal</span><select id="notaFiscal"><option value="nao">Não precisa de nota fiscal</option><option value="sim">Sim, emitir nota fiscal</option></select><small>A opção escolhida aparecerá na proposta comercial.</small></label>
+            <label class="field field-full"><span>Observações</span><textarea id="observacoes" rows="4" placeholder="Informações adicionais, horários, acessos, credenciais, entregas especiais..."></textarea></label>
+          </div>
+        </section>
+      </div>
+
+      <aside id="resumo" class="quote-panel">
+        <div class="quote-head">
+          <div><span>Seu orçamento</span><small><i class="fa-solid fa-circle"></i> Atualizado em tempo real</small></div>
+          <i class="fa-solid fa-sparkles"></i>
+        </div>
+
+        <div id="selectedItems" class="selected-items">
+          <div class="empty-state"><i class="fa-solid fa-basket-shopping"></i><p>Selecione os serviços para começar.</p></div>
+        </div>
+
+        <div class="summary-breakdown">
+          <div><span>Subtotal dos serviços</span><strong id="subtotalServicos">R$ 0,00</strong></div>
+          <div><span>Deslocamento</span><strong id="valorDeslocamento">R$ 0,00</strong></div>
+          <div><span>Desconto comercial</span><strong id="valorDesconto">R$ 0,00</strong></div>
+        </div>
+
+        <label class="discount-field">
+          <span>Desconto (%)</span>
+          <input type="number" id="desconto" value="0" min="0" max="30" step="1" />
+        </label>
+
+        <div class="total-row"><span>Total</span><strong id="totalGeral">R$ 0,00</strong></div>
+        <div class="installment" id="parcelamento">ou 3x de R$ 0,00</div>
+
+        <button class="btn btn-primary btn-wide" id="btnGerar"><i class="fa-solid fa-file-pdf"></i> Gerar orçamento</button>
+        <button class="btn btn-outline btn-wide" id="btnLimpar"><i class="fa-solid fa-trash-can"></i> Limpar seleção</button>
+        <button class="btn btn-ghost btn-wide" id="btnSalvar"><i class="fa-solid fa-floppy-disk"></i> Salvar orçamento</button>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><strong>Belém Today</strong><span>Captação mobile premium para redes sociais.</span></div>
+    <div class="footer-contact"><a href="mailto:belemtoday@outlook.com"><i class="fa-regular fa-envelope"></i> belemtoday@outlook.com</a><a href="tel:+5591984513581"><i class="fa-brands fa-whatsapp"></i> (91) 98451-3581</a></div>
+    <small>© 2026 — Orçamento sujeito à disponibilidade de agenda.</small>
+  </footer>
+
+
+  <div class="mobile-budget-bar" id="mobileBudgetBar">
+    <div><small id="mobileItemCount">Nenhum serviço selecionado</small><strong id="mobileTotal">R$ 0,00</strong></div>
+    <button type="button" id="mobileReviewBtn"><i class="fa-solid fa-receipt"></i> Revisar</button>
+  </div>
+
+  <div class="modal" id="quoteModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      <div id="printArea"></div>
+      <div class="modal-actions no-print">
+        <button class="btn btn-primary" id="btnImprimir"><i class="fa-solid fa-print"></i> Imprimir / Salvar PDF</button>
+        <button class="btn btn-outline" id="btnCopiar"><i class="fa-regular fa-copy"></i> Copiar resumo</button>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js?v=20260817-multiprofile-local"></script>
+</body>
+</html>
