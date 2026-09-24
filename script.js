@@ -32,7 +32,7 @@ const services = [
     desc:'Sobrevoo aéreo e plano de fachada do evento com DJI 4.',
     icon:'fa-helicopter-symbol',unit:'vídeo',
     durations:[
-      {label:'Até 30 segundos',price:250},
+      {label:'Até 30 segundos',price:350},
       {label:'Até 1 minuto',price:350},
       {label:'Até 1min30',price:450}
     ]
