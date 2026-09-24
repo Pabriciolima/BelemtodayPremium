@@ -10,8 +10,8 @@ const services = [
     desc:'Captação mobile profissional + edição completa para redes sociais. Formato paisagem em 4K60/4K30.',
     tag:'Paisagem',icon:'fa-image',unit:'vídeo',publication:true,
     durations:[
-      {label:'Até 1min30',price:350},
-      {label:'Até 3 minutos',price:500},
+      {label:'Até 1min30',price:650},
+      {label:'Até 3 minutos',price:650},
       {label:'Até 5 minutos',price:700},
       {label:'Até 10 minutos',price:1000}
     ]
@@ -21,8 +21,8 @@ const services = [
     desc:'Captação mobile profissional + edição completa para Reels, Stories e TikTok.',
     tag:'Retrato',icon:'fa-mobile-screen',unit:'vídeo',publication:true,
     durations:[
-      {label:'Até 1min30',price:350},
-      {label:'Até 3 minutos',price:500},
+      {label:'Até 1min30',price:650},
+      {label:'Até 3 minutos',price:650},
       {label:'Até 5 minutos',price:700},
       {label:'Até 10 minutos',price:1000}
     ]
@@ -32,9 +32,9 @@ const services = [
     desc:'Sobrevoo aéreo e plano de fachada do evento com DJI 4.',
     icon:'fa-helicopter-symbol',unit:'vídeo',
     durations:[
-      {label:'Até 30 segundos',price:350},
-      {label:'Até 1 minuto',price:350},
-      {label:'Até 1min30',price:450}
+      {label:'Até 30 segundos',price:650},
+      {label:'Até 1 minuto',price:650},
+      {label:'Até 1min30',price:650}
     ]
   },
   {
@@ -42,9 +42,9 @@ const services = [
     desc:'Teaser de divulgação gravado antes do evento para aquecer o público.',
     icon:'fa-bullhorn',unit:'vídeo',
     durations:[
-      {label:'Até 30 segundos',price:250},
-      {label:'Até 1 minuto',price:350},
-      {label:'Até 1min30',price:450}
+      {label:'Até 30 segundos',price:650},
+      {label:'Até 1 minuto',price:650},
+      {label:'Até 1min30',price:650}
     ]
   },
   {
