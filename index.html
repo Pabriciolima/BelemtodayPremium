@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260819-print-fix2" />
+  <link rel="stylesheet" href="style.css?v=20260924-duration-fix1" />
 </head>
 <body>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -168,11 +168,11 @@
             <label class="field">
               <span>Duração estimada</span>
               <select id="duracaoEvento">
-                <option value="4">Até 4 horas</option>
-                <option value="8">Até 8 horas</option>
-                <option value="12" selected>Até 12 horas</option>
+                <option value="1">Até 01 hora</option>
+                <option value="2">Até 02 horas</option>
+                <option value="3" selected>Até 03 horas</option>
               </select>
-              <small>Evento configurado para até 12 horas, sem cobrança adicional de agenda.</small>
+              <small>A duração serve para organização da cobertura, sem cobrança adicional de agenda.</small>
             </label>
 
             <label class="field">
@@ -208,7 +208,7 @@
 
           <div class="pricing-rules agenda-free-rules">
             <article><i class="fa-regular fa-calendar-check"></i><strong>Agenda sem adicional</strong><span>dia e horário não alteram o valor</span></article>
-            <article><i class="fa-solid fa-clock"></i><strong>Evento de até 12h</strong><span>sem taxa extra de jornada</span></article>
+            <article><i class="fa-solid fa-clock"></i><strong>Duração da cobertura</strong><span>organizada conforme o período selecionado</span></article>
             <article><i class="fa-solid fa-route"></i><strong>Deslocamento</strong><span>único ajuste logístico quando aplicável</span></article>
           </div>
         </section>
@@ -289,6 +289,6 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script src="script.js?v=20260819-print-fix2"></script>
+  <script src="script.js?v=20260924-duration-fix1"></script>
 </body>
 </html>
